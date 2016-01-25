@@ -1,4 +1,5 @@
 node_modules
-dist/
 .tmp
 app.yaml
+.swp
+favicon-data.json
