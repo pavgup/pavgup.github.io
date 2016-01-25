@@ -32,7 +32,9 @@ gulp.task('generate-favicon', function(done) {
           name: 'pavgup',
           display: 'browser',
           orientation: 'notSet',
-          existingManifest: realFavicon.escapeJSONSpecialChars(fs.readFileSync('app/manifest.json', 'utf8')),
+          existingManifest: realFavicon.escapeJSONSpecialChars(
+            fs.readFileSync('app/manifest.json', 'utf8')
+          ),
           onConflict: 'override',
           declared: false
         }
