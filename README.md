@@ -17,7 +17,7 @@ $ npm i -g gulp
 ```
 
 ```sh
-$ git clone [git-repo-url] pavgup
+$ git clone https://github.com/pavgup/pavgup.github.io.git pavgup
 $ cd pavgup
 $ npm i -d
 $ gulp
