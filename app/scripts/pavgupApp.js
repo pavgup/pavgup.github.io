@@ -1,5 +1,5 @@
 /* global angular */
-angular.module('pavgupApp', [])
+angular.module('pavgupApp', ['headerModule'])
   .config([function() {
     console.log('configure block parsed');
   }])

@@ -51,8 +51,8 @@
         <div id="main">
 
           <!-- Header -->
-            <header id="header">
-              <h1>Adam Jensen</h1>
+            <header ng-controller="headerCtrl" id="header">
+              <h1>{{name}}</h1>
               <p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>
               <nav>
                 <ul>
@@ -72,9 +72,9 @@
 
         </div>
       </div>
-      <script src="scripts/main.js"></script
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
       <script src="scripts/pavgupApp.js"></script>
+      <script src="scripts/header/headerModule.js"></script>
       <!--[if lte IE 8]><script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
       <script>
         window.onload = function() { document.body.className = ''; }
@@ -91,5 +91,6 @@
       ga('send', 'pageview');
     </script>
     <!-- Built with love using Web Starter Kit -->
+    <script src="scripts/main.js"></script
   </body>
 </html>
