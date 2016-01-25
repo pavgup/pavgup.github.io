@@ -1,7 +1,7 @@
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
+@import url("http://fonts.googleapis.com/css?family=Lato:300,900");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css");
 
 /*
@@ -46,7 +46,7 @@
 
 	body, input, select, textarea {
 		color: _palette(fg);
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'Lato', 'Source Sans Pro', sans-serif;
 		font-size: 15pt;
 		font-weight: 300 !important;
 		letter-spacing: -0.025em;

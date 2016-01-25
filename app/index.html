@@ -51,16 +51,14 @@
         <div id="main">
 
           <!-- Header -->
-            <header ng-controller="HeaderCtrl" id="header">
-              <h1>{{name}}</h1>
+            <header ng-controller="HeaderCtrl as header" id="header">
+              <h1>{{header.myName}}</h1>
               <p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>
               <nav>
                 <ul>
-                  <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                  <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                  <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-                  <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-                  <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                  <li ng-repeat="contact in header.contacts">
+                    <a ng-href="{{contact.href}}" class="icon" ng-class="{{['icon', contact.icon]}}"><span class="label">{{contact.name}}</span></a>
+                  </li>
                 </ul>
               </nav>
             </header>
