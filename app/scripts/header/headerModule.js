@@ -33,4 +33,26 @@ angular.module('headerModule', [])
       serviceName: 'Email'
     }
   ];
+}])
+.controller('HighlightCtrl', ['$scope', function($scope) {
+  console.log($scope);
+  this.randomHighlightsTargetLength = 3;
+  this.bank = [
+    'Ninja', 'DevOps Nerd', 'Wahoo', 'Informagician',
+    'Bio Geek', 'Maker', 'Cloud Wizard', 'Linux Lover',
+    'Mildly Creative', 'Architect', 'Java Drinker',
+    'Python Collector', 'Ruby Hoarder', 'GoldenDoodle Herder'
+  ];
+  this.randomHighlights = function() {
+    var randomHighlightArray = [];
+    while (randomHighlightArray.length < this.randomHighlightsTargetLength) {
+      var index = Math.floor(Math.random() * this.bank.length);
+      if (randomHighlightArray.lastIndexOf(this.bank[index]) > 0) {
+        console.log('Random duplicate highlight skipped: ' + this.bank[index]);
+      } else {
+        randomHighlightArray.push(this.bank[index]);
+      }
+    }
+    return randomHighlightArray;
+  };
 }]);

@@ -53,7 +53,13 @@
           <!-- Header -->
             <header ng-controller="HeaderCtrl as header" id="header">
               <h1>{{header.myName}}</h1>
-              <p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>
+              <div ng-controller="HighlightCtrl as highlight">
+                <p ng-init="highlight.randomArray = highlight.randomHighlights()">
+                  <span ng-repeat="phrase in highlight.randomArray track by $index">
+                    {{phrase + ($last ? '' : '&nbsp;&bull;&nbsp;')}}
+                  </span>
+                </p>
+              </div>
               <nav>
                 <ul>
                   <li ng-repeat="contact in header.contacts">
