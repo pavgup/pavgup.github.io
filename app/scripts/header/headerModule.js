@@ -7,6 +7,6 @@ angular.module('headerModule', [])
 .run([function() {
   console.log('headerModule run callback fired');
 }])
-.controller('headerCtrl', ['$scope', function($scope) {
+.controller('HeaderCtrl', ['$scope', function($scope) {
   $scope.name = 'Pavan Gupta';
 }]);
