@@ -11,50 +11,50 @@ var realFavicon = require('gulp-real-favicon');
 // you should run it whenever RealFaviconGenerator updates its
 // package (see the check-for-favicon-update task below).
 gulp.task('generate-favicon', function(done) {
-	realFavicon.generateFavicon({
-		masterPicture: 'app/images/favicon.png',
-		dest: 'app/images/touch',
-		iconsPath: '/images/touch',
-		design: {
-			ios: {
-				pictureAspect: 'noChange'
-			},
-			desktopBrowser: {},
-			windows: {
-				pictureAspect: 'whiteSilhouette',
-				backgroundColor: '#da532c',
-				onConflict: 'override'
-			},
-			androidChrome: {
-				pictureAspect: 'noChange',
-				themeColor: '#ffffff',
-				manifest: {
-					name: 'pavgup',
-					display: 'browser',
-					orientation: 'notSet',
-					existingManifest: realFavicon.escapeJSONSpecialChars(fs.readFileSync('app/manifest.json', 'utf8')),
-					onConflict: 'override',
-					declared: false
-				}
-			},
-			safariPinnedTab: {
-				pictureAspect: 'silhouette',
-				themeColor: '#5bbad5'
-			}
-		},
-		settings: {
-			compression: 5,
-			scalingAlgorithm: 'Mitchell',
-			errorOnImageTooSmall: false
-		},
-		markupFile: 'favicon-data.json'
-	}, function() {
-		// Patch the original manifest
-		gulp.src('app/images/touch/manifest.json').pipe(gulp.dest('app'))
-			.on('finish', function() {
-				done();
-		});
-	});
+  realFavicon.generateFavicon({
+    masterPicture: 'app/images/favicon.png',
+    dest: 'app/images/touch',
+    iconsPath: '/images/touch',
+    design: {
+      ios: {
+        pictureAspect: 'noChange'
+      },
+      desktopBrowser: {},
+      windows: {
+        pictureAspect: 'whiteSilhouette',
+        backgroundColor: '#da532c',
+        onConflict: 'override'
+      },
+      androidChrome: {
+        pictureAspect: 'noChange',
+        themeColor: '#ffffff',
+        manifest: {
+          name: 'pavgup',
+          display: 'browser',
+          orientation: 'notSet',
+          existingManifest: realFavicon.escapeJSONSpecialChars(fs.readFileSync('app/manifest.json', 'utf8')),
+          onConflict: 'override',
+          declared: false
+        }
+      },
+      safariPinnedTab: {
+        pictureAspect: 'silhouette',
+        themeColor: '#5bbad5'
+      }
+    },
+    settings: {
+      compression: 5,
+      scalingAlgorithm: 'Mitchell',
+      errorOnImageTooSmall: false
+    },
+    markupFile: 'favicon-data.json'
+  }, function() {
+    // Patch the original manifest
+    gulp.src('app/images/touch/manifest.json').pipe(gulp.dest('app'))
+      .on('finish', function() {
+        done();
+      });
+  });
 });
 
 // Check for updates on RealFaviconGenerator (think: Apple has just
@@ -62,11 +62,11 @@ gulp.task('generate-favicon', function(done) {
 // Run this task from time to time. Ideally, make it part of your
 // continuous integration system.
 gulp.task('check-for-favicon-update', function(done) {
-	var currentVersion = JSON.parse(fs.readFileSync('favicon-data.json')).version;
-	realFavicon.checkForUpdates(currentVersion, function(err) {
-		if (err) {
-			throw err;
-		}
-		done();
-	});
+  var currentVersion = JSON.parse(fs.readFileSync('favicon-data.json')).version;
+  realFavicon.checkForUpdates(currentVersion, function(err) {
+    if (err) {
+      throw err;
+    }
+    done();
+  });
 });
