@@ -1,10 +1,15 @@
 'use strict';
-import gulpLoadPlugins from 'gulp-load-plugins';
 
 var gulp = require('gulp');
-const $ = gulpLoadPlugins();
+var subtree = require('gulp-subtree');
+var clean = require('gulp-clean');
 
 gulp.task('deploy', ['default'], () => {
   return gulp.src('dist')
-    .pipe($.subtree());
+    .pipe(subtree({
+      remote: 'origin',
+      branch: 'gh-pages',
+      message: 'Distribution Commit'
+    }))
+    .pipe(clean());
 });
